@@ -311,15 +311,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     const data = {};
     new FormData(form).forEach((v, k) => { data[k] = v; });
-    data['_subject'] = 'New Contact Form – The Credit Advice';
+    data['access_key'] = '50c7d8d6-52a5-4e41-b2dd-2b52971df52f';
+    data['subject']    = 'New Contact Form – The Credit Advice';
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/devops.bizzbuzzcreations@gmail.com', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       });
-      if (res.ok) {
+      const json = await res.json();
+      if (res.ok && json.success) {
         form.style.display = 'none';
         if (successEl) successEl.style.display = 'block';
       } else {
@@ -333,7 +335,206 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 })();
 
-/* ── 8. BACK TO TOP ─────────────────────────────────────── */
+/* ── 8. GUIDANCE MODAL ──────────────────────────────────── */
+(function initGuidanceModal() {
+  const overlay = document.getElementById('guidance-modal');
+  if (!overlay) return;
+
+  const popForm    = document.getElementById('popup-form');
+  const popSuccess = document.getElementById('popup-success');
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const first = overlay.querySelector('#pop-firstname');
+    if (first) setTimeout(() => first.focus(), 100);
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.open-guidance-modal').forEach(btn => {
+    btn.addEventListener('click', e => { e.preventDefault(); openModal(); });
+  });
+
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  overlay.querySelector('.modal-close').addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  function validatePopField(field) {
+    const val   = field.value.trim();
+    const group = field.closest('.form-group');
+    let errEl   = group.querySelector('.form-error');
+    if (!errEl) { errEl = document.createElement('span'); errEl.className = 'form-error'; group.appendChild(errEl); }
+    field.classList.remove('error');
+    errEl.textContent = '';
+    if (field.required && !val) {
+      field.classList.add('error');
+      errEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> This field is required';
+      return false;
+    }
+    if (field.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      field.classList.add('error');
+      errEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email address';
+      return false;
+    }
+    if (field.type === 'tel' && val && !/^[\d\s\+\-\(\)]{7,}$/.test(val)) {
+      field.classList.add('error');
+      errEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please enter a valid phone number';
+      return false;
+    }
+    return true;
+  }
+
+  popForm.querySelectorAll('.form-control').forEach(field => {
+    field.addEventListener('blur', () => validatePopField(field));
+    field.addEventListener('input', () => { if (field.classList.contains('error')) validatePopField(field); });
+  });
+
+  popForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fields   = [...popForm.querySelectorAll('.form-control[required], .form-control[type="email"], .form-control[type="tel"]')];
+    const valid    = fields.map(validatePopField).every(Boolean);
+    const consent  = popForm.querySelector('#pop-consent');
+    const cErr     = popForm.querySelector('#pop-consent-error');
+    let consentOk  = true;
+    if (consent && !consent.checked) {
+      if (cErr) cErr.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> You must agree to the Privacy Policy';
+      consentOk = false;
+    } else if (cErr) { cErr.textContent = ''; }
+    if (!valid || !consentOk) return;
+
+    const submitBtn = popForm.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+
+    const data = {};
+    new FormData(popForm).forEach((v, k) => { data[k] = v; });
+    data['access_key'] = '50c7d8d6-52a5-4e41-b2dd-2b52971df52f';
+    data['subject']    = 'New Guidance Request – The Credit Advice';
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        popForm.style.display = 'none';
+        if (popSuccess) popSuccess.style.display = 'block';
+      } else { throw new Error('Server error'); }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      alert('Sorry, something went wrong. Please call us on +44 7307228634.');
+    }
+  });
+})();
+
+/* ── 9. AUTO LEAD POPUP ─────────────────────────────────── */
+(function initLeadPopup() {
+  const overlay = document.getElementById('lead-popup');
+  if (!overlay) return;
+
+  const lpForm    = document.getElementById('lead-popup-form');
+  const lpSuccess = document.getElementById('lead-popup-success');
+
+  function closePopup() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('lead-popup-shown', '1');
+  }
+
+  if (!sessionStorage.getItem('lead-popup-shown')) {
+    setTimeout(() => {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }, 5000);
+  }
+
+  overlay.querySelector('.lead-popup-close').addEventListener('click', closePopup);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closePopup(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closePopup();
+  });
+
+  function validateLpField(field) {
+    const val   = field.value.trim();
+    const group = field.closest('.form-group');
+    let errEl   = group.querySelector('.form-error');
+    if (!errEl) { errEl = document.createElement('span'); errEl.className = 'form-error'; group.appendChild(errEl); }
+    field.classList.remove('error');
+    errEl.textContent = '';
+    if (field.required && !val) {
+      field.classList.add('error');
+      errEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> This field is required';
+      return false;
+    }
+    if (field.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      field.classList.add('error');
+      errEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email address';
+      return false;
+    }
+    if (field.type === 'tel' && val && !/^[\d\s\+\-\(\)]{7,}$/.test(val)) {
+      field.classList.add('error');
+      errEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please enter a valid phone number';
+      return false;
+    }
+    return true;
+  }
+
+  lpForm.querySelectorAll('.form-control').forEach(field => {
+    field.addEventListener('blur', () => validateLpField(field));
+    field.addEventListener('input', () => { if (field.classList.contains('error')) validateLpField(field); });
+  });
+
+  lpForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fields  = [...lpForm.querySelectorAll('.form-control[required], .form-control[type="email"], .form-control[type="tel"]')];
+    const valid   = fields.map(validateLpField).every(Boolean);
+    const consent = lpForm.querySelector('#lp-consent');
+    const cErr    = lpForm.querySelector('#lp-consent-error');
+    let consentOk = true;
+    if (consent && !consent.checked) {
+      if (cErr) cErr.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> You must agree to the Privacy Policy';
+      consentOk = false;
+    } else if (cErr) { cErr.textContent = ''; }
+    if (!valid || !consentOk) return;
+
+    const submitBtn = lpForm.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting…';
+
+    const data = {};
+    new FormData(lpForm).forEach((v, k) => { data[k] = v; });
+    data['access_key'] = '50c7d8d6-52a5-4e41-b2dd-2b52971df52f';
+    data['subject']    = 'Quick Enquiry – The Credit Advice';
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        lpForm.style.display = 'none';
+        if (lpSuccess) lpSuccess.style.display = 'block';
+      } else { throw new Error('Server error'); }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit';
+      alert('Sorry, something went wrong. Please call us on +44 7307228634.');
+    }
+  });
+})();
+
+/* ── 10. BACK TO TOP ────────────────────────────────────── */
 (function initBackToTop() {
   const btn = $('#back-to-top');
   if (!btn) return;
@@ -343,7 +544,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
-/* ── 9. COOKIE BANNER ───────────────────────────────────── */
+/* ── 10. COOKIE BANNER ──────────────────────────────────── */
 (function initCookieBanner() {
   const banner = $('#cookie-banner');
   if (!banner) return;
