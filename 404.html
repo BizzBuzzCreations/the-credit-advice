@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found</title>
+  <meta name="description" content="The page you're looking for could not be found.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <style>
+    :root {
+      --primary:  black;
+      --accent:   red;
+      --accent-dark: blue;
+      --ink:      black;
+      --muted:    black;
+      --line:     #DFE8EF;
+      --bg:       #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    /* faint vertical accent line */
+    .vline {
+      position: fixed;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: var(--line);
+      z-index: 0;
+    }
+
+    /* ── MAIN WRAP ── */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 0.8s ease 0.1s forwards;
+      padding-top: 80px;
+    }
+
+    @keyframes fadeIn  { to { opacity: 1; } }
+    @keyframes fadeUp  {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    
+
+    /* ── 404 GLITCH HEADING ── */
+    .error-code {
+      font-weight: 800;
+      font-size: clamp(5.5rem, 20vw, 10rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      color: var(--primary);
+      display: inline-block;
+      text-shadow: 7px 7px 0 var(--accent);
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.25s forwards, glitch 5.5s ease-in-out 1.2s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 92%, 100% { text-shadow: 7px 7px 0 var(--accent);  transform: translate(0,0);    }
+      93%            { text-shadow: -6px 5px 0 var(--accent); transform: translate(2px,-1px); }
+      94%            { text-shadow: 6px -5px 0 var(--accent); transform: translate(-2px,1px); }
+      95%            { text-shadow: -4px -4px 0 var(--accent);transform: translate(1px,2px);  }
+      96%            { text-shadow: 7px 7px 0 var(--accent);  transform: translate(0,0);    }
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: clamp(1.2rem, 4vw, 1.75rem);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 20px;
+      color: var(--primary);
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 380px;
+      margin: 18px auto 34px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.55s forwards;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background: #fff;
+      color: black;
+      border: 2px solid var(--accent);
+      padding: 15px 42px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.7s forwards;
+    }
+    .btn-home:hover {
+      background: red;
+      border-color: red;
+      transform: translateY(-3px);
+    }
+    .btn-home:active { transform: translateY(-1px); }
+
+    /* ── QUICK LINKS ── */
+    .quick-links {
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.78s forwards;
+    }
+    .quick-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 6px;
+      transition: color .2s;
+    }
+    .quick-links a:hover { color: var(--accent); }
+
+    /* ── SOCIALS ── */
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 36px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.88s forwards;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--line);
+      border-color: black;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+    .social-btn:hover {
+      border-color: red;
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* ── FOOTER NOTE ── */
+    .foot-note {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: var(--line);
+      opacity: 0;
+      animation: fadeUp 0.7s ease 1s forwards;
+    }
+    .foot-note a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .error-code  { text-shadow: 5px 5px 0 var(--accent); letter-spacing: -1px; }
+      .btn-home    { padding: 14px 32px; }
+      .logo-bar-name { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+    <h1 class="error-code">404</h1>
+    <h2 class="title">Page Not Found</h2>
+    <p class="desc">
+      The page you are looking for might have been removed, had its
+      name changed, or is temporarily unavailable.
+    </p>
+
+    <a class="btn-home" href="index.html">
+      <i class style="margin-right:8px;"></i>Homepage
+    </a>
+
+    <div class="socials">
+      <a class="social-btn" href="https://www.facebook.com/profile.php?id=61590652065274" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+      </a>
+      <a class="social-btn" href="https://www.tiktok.com/@user2695124747028?_r=1&_t=ZS-97JgbvBmDlX" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
+      </a>
+      <a class="social-btn" href="#" aria-label="Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>
