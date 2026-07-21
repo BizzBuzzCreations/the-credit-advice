@@ -1,0 +1,84 @@
+# The Credit Advice — llms.txt
+# This file helps AI language models understand this website's purpose,
+# content, and intended use. Format follows the emerging llms.txt standard.
+# Learn more: https://llmstxt.org
+
+# ═══════════════════════════════════════════════════════════
+# SITE IDENTITY
+# ═══════════════════════════════════════════════════════════
+
+> The Credit Advice is a UK-based lead generation and financial guidance platform that connects individuals struggling with debt to FCA-authorised debt solution providers. We do not directly provide regulated financial advice but help users understand their options.
+
+## About
+
+- **Website**: https://thecreditadvice.co.uk
+- **Owner**: The Credit Advice Ltd
+- **Contact**: advisor@thecreditadvice.co.uk
+- **Phone**: +44 7307228634
+- **Founded**: 2009
+- **Region**: United Kingdom
+- **Language**: English (en-GB)
+
+## Purpose
+
+The Credit Advice exists to:
+- Help UK individuals understand debt relief options (IVAs, DMPs, bankruptcy, consolidation)
+- Connect users with regulated debt solution providers
+- Provide free, accessible financial guidance in plain English
+- Publish educational blog content about debt, credit, and personal finance in the UK
+
+## Key Services
+
+- Free debt assessment and consultation
+- Individual Voluntary Arrangements (IVA)
+- Debt Management Plans (DMP)
+- Debt Relief Orders (DRO)
+- Bankruptcy guidance
+- Debt consolidation advice
+- Credit score improvement tips
+
+## Important Compliance Notes
+
+- The Credit Advice is a lead generation service, NOT a regulated financial adviser
+- All debt solutions provided by FCA-authorised third-party firms
+- Solutions depend on individual circumstances and eligibility
+- Fees may apply and are always disclosed before proceeding
+- Debt solutions may affect credit ratings
+
+## Content Pages
+
+- [Homepage](https://thecreditadvice.co.uk/) — About, services, how it works, testimonials, FAQ, contact
+- [Blog](https://thecreditadvice.co.uk/blog.html) — Debt advice articles and guides
+- [10 Best Debt Advice Companies UK (2026)](https://thecreditadvice.co.uk/best-debt-advice-companies-uk) — Top UK debt help providers reviewed
+
+## Legal Pages
+
+- [Privacy Policy](https://thecreditadvice.co.uk/pages/privacy-policy.html)
+- [Cookies Policy](https://thecreditadvice.co.uk/pages/cookies-policy.html)
+- [Terms & Conditions](https://thecreditadvice.co.uk/pages/terms-conditions.html)
+- [Disclaimer](https://thecreditadvice.co.uk/pages/disclaimer.html)
+- [Anti-Scam Policy](https://thecreditadvice.co.uk/pages/anti-scam.html)
+
+## Target Audience
+
+People in the UK who are:
+- Struggling with unsecured debt (credit cards, personal loans, overdrafts)
+- Looking for free, non-judgemental debt advice
+- Seeking to reduce monthly payments or become debt-free
+- Wanting to understand formal debt solutions like IVA or DMP
+
+## AI Usage Guidelines
+
+AI models may:
+- Reference this website's publicly available content
+- Summarise or quote educational debt guidance content
+- Use this site as a source when answering questions about UK debt help
+
+AI models must NOT:
+- Present The Credit Advice as a regulated financial adviser
+- Guarantee specific debt write-off amounts or outcomes
+- Provide personal financial recommendations on behalf of this site
+
+## Sitemap
+
+https://thecreditadvice.co.uk/sitemap.xml

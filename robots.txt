@@ -1,0 +1,55 @@
+# ═══════════════════════════════════════════════════════════
+# robots.txt — The Credit Advice
+# https://thecreditadvice.co.uk
+# ═══════════════════════════════════════════════════════════
+
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+
+# Block non-public or utility paths
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+
+# Sitemap location
+Sitemap: https://thecreditadvice.co.uk/sitemap.xml
+
+# ───────────────────────────────────────────
+# Google crawlers
+# ───────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Googlebot-Image
+Allow: /blog-images/
+Allow: /assets/images/
+
+# ───────────────────────────────────────────
+# Bing
+# ───────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3
+
+# ───────────────────────────────────────────
+# AI crawlers — allow read-only access
+# ───────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs</title>
+  <meta name="description" content="Free, plain-English financial and debt advice guides from The Credit Advice — practical, judgement-free help for anyone in the UK." />
+  <meta name="keywords" content="debt advice blog, credit tips, loan advice UK, financial planning, IVA guide, debt management plan" />
+  <link rel="canonical" href="https://www.thecreditadvice.co.uk/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog — Financial Advice | The Credit Advice" />
+  <meta property="og:description" content="Free, plain-English debt and financial advice guides — practical, judgement-free help written for UK readers." />
+  <meta property="og:url" content="https://www.thecreditadvice.co.uk/blog.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════ -->
+<nav id="navbar" class="scrolled" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="The Credit Advice – Home">
+        <img src="assets/images/tca-logo.png" alt="The Credit Advice" class="nav-logo-img" aria-hidden="true">
+        <div class="nav-logo-words">
+          <span class="nav-logo-name">The Credit Advice</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#debt-solutions">Debt Solutions</a></li>
+        <li><a href="index.html#how-we-work">How It Works</a></li>
+        <li><a href="blog.html" class="nav-active">Blog</a></li>
+        <li><a href="index.html#testimonials">Reviews</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-green nav-cta">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+        Free Consultation
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+  <div class="container">
+    <a href="index.html#about">About Us</a>
+    <a href="index.html#services">Our Services</a>
+    <a href="index.html#debt-solutions">Debt Solutions</a>
+    <a href="index.html#how-we-work">How It Works</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#testimonials">Client Reviews</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact Us</a>
+    <a href="tel:+447307228634" class="btn btn-green">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i> Call +44 7307228634
+    </a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE HERO
+     ═══════════════════════════════════════════════════════ -->
+<section class="blog-page-hero" aria-label="Blog page hero">
+  <div class="container">
+    <h1>Our Blog</h1>
+    <p>Straightforward, judgement-free financial and debt advice for the UK — written in plain English with no jargon and no sales pitch.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     BLOG LISTING
+     ═══════════════════════════════════════════════════════ -->
+<section class="section-pad" aria-label="Blog articles">
+  <div class="container">
+
+    <!-- Search -->
+    <div class="blog-search-bar">
+      <input type="text"
+             id="blogSearch"
+             placeholder="Search articles… e.g. debt, credit score, IVA"
+             aria-label="Search blog articles" />
+      <button type="button" id="blogSearchBtn">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Search
+      </button>
+    </div>
+
+    <!-- Category pills -->
+    <div class="blog-categories" id="blog-categories" role="group" aria-label="Filter by category">
+      <!-- Rendered by blog.js -->
+    </div>
+
+    <!-- Grid -->
+    <div class="blog-grid" id="blog-grid" role="list">
+      <!-- Rendered by blog.js -->
+    </div>
+
+    <!-- No results -->
+    <div class="no-results" id="noResults" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p>No articles match your search. Try a different keyword or category.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     NEWSLETTER
+     ═══════════════════════════════════════════════════════ -->
+<section class="blog-newsletter-section section-pad-sm" aria-label="Newsletter sign-up">
+  <div class="container">
+    <div class="newsletter-inner">
+      <span class="section-eyebrow">Stay Informed</span>
+      <h2 class="section-title">Get Our Best Money Guides by Email</h2>
+      <p class="section-subtitle">Useful financial tips every month — no spam, unsubscribe any time.</p>
+      <form class="nl-form" id="newsletter-form" novalidate>
+        <input type="email"
+               id="newsletter-email"
+               name="email"
+               placeholder="Enter your email address"
+               required
+               aria-label="Email address for newsletter" />
+        <button type="submit" class="btn btn-green">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Subscribe
+        </button>
+      </form>
+      <p class="nl-privacy">No spam, ever. <a href="pages/privacy-policy.html">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════ -->
+<section class="blog-final-cta" aria-label="Get free advice">
+  <div class="container">
+    <span class="section-eyebrow">Prefer to Talk?</span>
+    <h2>Get Free, Confidential Advice Today</h2>
+    <p>Whatever stage you're at — just starting to worry or already behind on payments — a free chat with our team costs nothing and comes with no obligation.</p>
+    <div class="final-cta-actions">
+      <a href="index.html#contact" class="btn btn-green btn-lg">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Speak to an Adviser
+      </a>
+      <a href="index.html#debt-solutions" class="btn-outline-light btn-lg">
+        Explore Debt Solutions
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer id="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">
+          <img src="assets/images/tca-logo.png" alt="The Credit Advice" class="f-logo-img" aria-hidden="true">
+          <div><div class="f-logo-name">The Credit Advice</div></div>
+        </div>
+        <p class="f-desc">Free, confidential guidance and financial solutions for individuals across the UK. Helping people understand their options and make informed decisions since 2009.</p>
+        <div class="f-socials" aria-label="Social media links">
+          <a href="https://www.facebook.com/profile.php?id=61590652065274" class="f-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@user2695124747028?_r=1&_t=ZS-97JgbvBmDlX" class="f-social" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="#" class="f-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Our Services</h4>
+        <ul class="f-links" role="list">
+          <li><a href="index.html#debt-solutions"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> IVA</a></li>
+          <li><a href="index.html#debt-solutions"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Debt Management Plan</a></li>
+          <li><a href="index.html#debt-solutions"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Debt Relief Options</a></li>
+          <li><a href="index.html#debt-solutions"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Trust Deed (Scotland)</a></li>
+          <li><a href="index.html#services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Bankruptcy Guidance</a></li>
+          <li><a href="index.html#services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Free Initial Guidance</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Quick Links</h4>
+        <ul class="f-links" role="list">
+          <li><a href="index.html#about"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
+          <li><a href="index.html#how-we-work"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> How It Works</a></li>
+          <li><a href="blog.html"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+          <li><a href="index.html#testimonials"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Client Reviews</a></li>
+          <li><a href="index.html#faq"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
+          <li><a href="index.html#contact"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul class="f-contact-items" role="list">
+          <li class="f-contact-item"><i class="fa-solid fa-phone" aria-hidden="true"></i><span><a href="tel:+447307228634">+44 7307228634</a></span></li>
+          <li class="f-contact-item"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span><a href="mailto:advisor@thecreditadvice.co.uk">advisor@thecreditadvice.co.uk</a></span></li>
+          <li class="f-contact-item"><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Mon – Fri : 8am – 8pm<br>Sat : 9am – 4pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="f-copy">&copy; 2009 The Credit Advice Ltd. All rights reserved.</p>
+      <nav class="f-bottom-links" aria-label="Legal links">
+        <a href="pages/privacy-policy.html">Privacy Policy</a>
+        <a href="pages/cookies-policy.html">Cookies Policy</a>
+        <a href="pages/terms-conditions.html">Terms &amp; Conditions</a>
+        <a href="pages/disclaimer.html">Disclaimer</a>
+        <a href="pages/anti-scam.html">Anti-Scam</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="site-disclaimer">
+  <div class="container">
+    <div class="sd-content">
+      <p style="text-align:center;">
+        <b>Important Information</b><br>
+        The Credit Advice is a lead generation service and does not provide financial, debt, or legal advice. We connect individuals with FCA-authorised and regulated debt solution providers.
+        Any solution will depend on your individual circumstances and eligibility. Fees may apply and will be explained before you proceed.
+        Debt solutions may affect your credit rating and, in some cases, your assets or property may be at risk. Information on this website is provided for general informational purposes only and should not be considered financial advice.
+        Company Number: +44 7307228634
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Back to top -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Cookie banner -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <p class="cookie-text">
+    We use cookies to improve your experience and analyse site usage.
+    Read our <a href="pages/cookies-policy.html">Cookies Policy</a> and <a href="pages/privacy-policy.html">Privacy Policy</a>.
+  </p>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="btn btn-green btn-sm">Accept All</button>
+    <button id="cookie-decline" class="btn btn-outline-white btn-sm">Decline</button>
+  </div>
+</div>
+
+<script src="js/blog.js"></script>
+</body>
+</html>
