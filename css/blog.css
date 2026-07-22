@@ -1022,7 +1022,7 @@
 /* ════════════════════════════════════════════════════════════
    STATIC BLOG POST PAGE — LAYOUT
    ════════════════════════════════════════════════════════════ */
-.blog-post-section { padding: 3rem 0 5rem; }
+.blog-post-section { padding: calc(var(--nav-h) + 1.5rem) 0 5rem; }
 
 .blog-post-grid {
   display: grid;
@@ -1643,5 +1643,7 @@
   .blog-contact-sidebar { position: static; }
   .article-meta-bar { padding: 1.4rem; }
   .article-content { padding: 1.4rem; }
-  .blog-post-section { padding: 1.5rem 0 3.5rem; }
+  .blog-post-section { padding: calc(var(--nav-h) + 1rem) 0 3.5rem; }
+  .article-meta-bar h1 { word-break: break-word; }
+  .article-meta-bar h1 br { display: none; }
 }
