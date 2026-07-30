@@ -14,7 +14,7 @@ const BLOG_POSTS = [
     featured: false,
     image: 'blog-images/TOP-10-DEBT-SOLUTION-COMPANIES.jpeg',
     excerpt: 'Search demand for financial help is growing rapidly in the UK. Discover the top 10 debt advice companies and proven strategies to escape debt faster in 2026.',
-    link: 'all-blog/best-debt-advice-companies-uk.html'
+    link: '/best-debt-advice-companies-uk'
   }
 ];
 
@@ -160,7 +160,7 @@ function initBlogPost() {
   const params = new URLSearchParams(window.location.search);
   const id     = parseInt(params.get('id'), 10);
   const post   = BLOG_POSTS.find(p => p.id === id);
-  if (!post) { window.location.href = 'blog.html'; return; }
+  if (!post) { window.location.href = '/blog'; return; }
 
   document.title = `${post.title} | The Credit Advice Blog`;
 }

@@ -1,0 +1,19 @@
+# ── Canonicalize: redirect legacy .html URLs to clean URLs (301, permanent) ──
+/index.html                                    /                                 301
+/blog.html                                     /blog                             301
+/all-blog/best-debt-advice-companies-uk.html   /best-debt-advice-companies-uk    301
+/all-blog/best-debt-advice-companies-uk        /best-debt-advice-companies-uk    301
+/pages/anti-scam.html                          /pages/anti-scam                  301
+/pages/cookies-policy.html                     /pages/cookies-policy             301
+/pages/disclaimer.html                         /pages/disclaimer                 301
+/pages/privacy-policy.html                     /pages/privacy-policy             301
+/pages/terms-conditions.html                   /pages/terms-conditions           301
+
+# ── Serve clean URLs by rewriting to the actual files (200, invisible) ──
+/best-debt-advice-companies-uk                 /all-blog/best-debt-advice-companies-uk.html   200
+/blog                                          /blog.html                       200
+/pages/anti-scam                               /pages/anti-scam.html            200
+/pages/cookies-policy                          /pages/cookies-policy.html       200
+/pages/disclaimer                              /pages/disclaimer.html           200
+/pages/privacy-policy                          /pages/privacy-policy.html       200
+/pages/terms-conditions                        /pages/terms-conditions.html     200

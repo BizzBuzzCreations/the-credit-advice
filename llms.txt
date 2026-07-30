@@ -48,16 +48,16 @@ The Credit Advice exists to:
 ## Content Pages
 
 - [Homepage](https://thecreditadvice.co.uk/) — About, services, how it works, testimonials, FAQ, contact
-- [Blog](https://thecreditadvice.co.uk/blog.html) — Debt advice articles and guides
+- [Blog](https://thecreditadvice.co.uk/blog) — Debt advice articles and guides
 - [10 Best Debt Advice Companies UK (2026)](https://thecreditadvice.co.uk/best-debt-advice-companies-uk) — Top UK debt help providers reviewed
 
 ## Legal Pages
 
-- [Privacy Policy](https://thecreditadvice.co.uk/pages/privacy-policy.html)
-- [Cookies Policy](https://thecreditadvice.co.uk/pages/cookies-policy.html)
-- [Terms & Conditions](https://thecreditadvice.co.uk/pages/terms-conditions.html)
-- [Disclaimer](https://thecreditadvice.co.uk/pages/disclaimer.html)
-- [Anti-Scam Policy](https://thecreditadvice.co.uk/pages/anti-scam.html)
+- [Privacy Policy](https://thecreditadvice.co.uk/pages/privacy-policy)
+- [Cookies Policy](https://thecreditadvice.co.uk/pages/cookies-policy)
+- [Terms & Conditions](https://thecreditadvice.co.uk/pages/terms-conditions)
+- [Disclaimer](https://thecreditadvice.co.uk/pages/disclaimer)
+- [Anti-Scam Policy](https://thecreditadvice.co.uk/pages/anti-scam)
 
 ## Target Audience
 
