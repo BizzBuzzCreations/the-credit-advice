@@ -7,10 +7,10 @@
 User-agent: *
 Allow: /
 
-# Block non-public or utility paths
+# Block non-public asset directories (rendering resources like CSS/JS
+# are intentionally left crawlable so pages render correctly)
 Disallow: /assets/
-Disallow: /css/
-Disallow: /js/
+Allow: /assets/images/
 
 # Sitemap location
 Sitemap: https://thecreditadvice.co.uk/sitemap.xml
@@ -20,6 +20,8 @@ Sitemap: https://thecreditadvice.co.uk/sitemap.xml
 # ───────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
+Disallow: /assets/
+Allow: /assets/images/
 Crawl-delay: 2
 
 User-agent: Googlebot-Image
@@ -31,6 +33,8 @@ Allow: /assets/images/
 # ───────────────────────────────────────────
 User-agent: Bingbot
 Allow: /
+Disallow: /assets/
+Allow: /assets/images/
 Crawl-delay: 3
 
 # ───────────────────────────────────────────

@@ -2,6 +2,7 @@
 # This file helps AI language models understand this website's purpose,
 # content, and intended use. Format follows the emerging llms.txt standard.
 # Learn more: https://llmstxt.org
+# Last updated: 2026-08-04
 
 # ═══════════════════════════════════════════════════════════
 # SITE IDENTITY
