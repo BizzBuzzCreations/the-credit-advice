@@ -2,7 +2,7 @@
 # This file helps AI language models understand this website's purpose,
 # content, and intended use. Format follows the emerging llms.txt standard.
 # Learn more: https://llmstxt.org
-# Last updated: 2026-08-04
+# Last updated: 2026-08-10
 
 # ═══════════════════════════════════════════════════════════
 # SITE IDENTITY
@@ -31,9 +31,11 @@ The Credit Advice exists to:
 ## Key Services
 
 - Free debt assessment and consultation
+- Free online debt repayment calculator (estimates payoff time, total repayment, and total interest based on debt amount, interest rate, and monthly payment)
 - Individual Voluntary Arrangements (IVA)
 - Debt Management Plans (DMP)
 - Debt Relief Orders (DRO)
+- Protected Trust Deeds (Scotland)
 - Bankruptcy guidance
 - Debt consolidation advice
 - Credit score improvement tips
@@ -45,10 +47,11 @@ The Credit Advice exists to:
 - Solutions depend on individual circumstances and eligibility
 - Fees may apply and are always disclosed before proceeding
 - Debt solutions may affect credit ratings
+- The debt repayment calculator produces estimates only (no interest/fee guarantees) — not a substitute for personalised advice
 
 ## Content Pages
 
-- [Homepage](https://thecreditadvice.co.uk/) — About, services, how it works, testimonials, FAQ, contact
+- [Homepage](https://thecreditadvice.co.uk/) — About, services, free debt repayment calculator, debt solutions, how it works, testimonials, FAQ, contact
 - [Blog](https://thecreditadvice.co.uk/blog) — Debt advice articles and guides
 - [10 Best Debt Advice Companies UK (2026)](https://thecreditadvice.co.uk/best-debt-advice-companies-uk) — Top UK debt help providers reviewed
 

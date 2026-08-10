@@ -944,6 +944,85 @@ input,textarea,select { font-family:inherit; }
 }
 .service-card:hover .service-card-link { gap: var(--s3); color: var(--accent); }
 
+/* ── 8b. DEBT CALCULATOR ────────────────────────────────── */
+.calculator-section { }
+.calc-wrapper {
+  max-width: 860px;
+  margin: 56px auto 0;
+  background: var(--white);
+  border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-100);
+}
+.calc-header {
+  background: linear-gradient(135deg, var(--blue-800), var(--primary));
+  padding: 28px 36px;
+  color: var(--white);
+}
+.calc-header h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; }
+.calc-header p { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+.calc-body { padding: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.calc-inputs { display: flex; flex-direction: column; gap: 22px; }
+.calc-field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.calc-field input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  font-family: var(--font);
+  color: var(--gray-800);
+  font-weight: 500;
+  transition: border-color var(--t-fast);
+  outline: none;
+}
+.calc-field input:focus { border-color: var(--primary); }
+.calc-btn { width: 100%; }
+.calc-results { display: flex; flex-direction: column; gap: 18px; }
+.calc-result-card {
+  background: var(--gray-50);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  border-left: 3px solid var(--primary);
+}
+.calc-result-card.green-border { border-color: var(--accent); }
+.calc-result-card.amber-border { border-color: var(--orange-500); }
+.calc-result-card p { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-400); margin-bottom: 6px; }
+.calc-result-card strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--heading);
+  letter-spacing: -0.03em;
+  display: block;
+}
+.calc-result-card span { font-size: 0.78rem; color: var(--gray-500); margin-top: 2px; display: block; }
+.calc-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  color: var(--gray-300);
+  gap: 12px;
+  padding: 20px 0;
+}
+.calc-placeholder svg { width: 48px; height: 48px; stroke: var(--gray-200); fill: none; stroke-width: 1.2; }
+.calc-placeholder p { font-size: 0.85rem; color: var(--gray-400); }
+
+@media (max-width: 768px) {
+  .calc-body { grid-template-columns: 1fr; }
+}
+
 /* ── 9. DEBT SOLUTIONS ──────────────────────────────────── */
 #debt-solutions {
   background: var(--bg);
@@ -1015,6 +1094,50 @@ input,textarea,select { font-family:inherit; }
   transition: gap var(--t-fast), color var(--t-fast);
 }
 .debt-card:hover .dc-cta { gap: var(--s3); color: var(--accent); }
+
+/* ── 9b. BLOG CTA BANNER ─────────────────────────────────── */
+#blog-cta {
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
+  padding-block: var(--s12);
+  position: relative;
+  overflow: hidden;
+}
+#blog-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+.blog-cta-inner {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+}
+.blog-cta-icon {
+  flex-shrink: 0;
+  width: 68px; height: 68px;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: var(--r-full);
+  display: grid; place-items: center;
+  font-size: 1.6rem;
+  color: var(--white);
+}
+.blog-cta-text { flex: 1; }
+.blog-cta-text h2 {
+  font-size: clamp(1.35rem, 2.6vw, var(--text-3xl));
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--s2);
+  line-height: 1.3;
+}
+.blog-cta-text p {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,.75);
+  line-height: 1.6;
+  max-width: 640px;
+}
+.blog-cta-btn { flex-shrink: 0; white-space: nowrap; }
 
 /* ── 10. HOW WE WORK ────────────────────────────────────── */
 #how-we-work {
@@ -1832,8 +1955,8 @@ select.form-control { cursor: pointer; }
 #cookie-banner {
   position: fixed; bottom: var(--s4); left: var(--s4); right: var(--s4);
   max-width: 680px; margin-inline: auto;
-  background: var(--blue-800);
-  border: 1px solid rgba(255,255,255,.1);
+  background: var(--white);
+  border: 1px solid var(--border-mid);
   border-radius: var(--r-2xl);
   padding: var(--s5) var(--s6);
   display: flex; align-items: center; gap: var(--s5); flex-wrap: wrap;
@@ -1842,8 +1965,8 @@ select.form-control { cursor: pointer; }
   transition: transform var(--t-slow);
 }
 #cookie-banner.show { transform: translateY(0); }
-.cookie-text { font-size: var(--text-sm); color: rgba(255,255,255,.75); line-height: 1.6; flex: 1; }
-.cookie-text a { color: #5de89a; text-decoration: underline; }
+.cookie-text { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; flex: 1; }
+.cookie-text a { color: var(--accent-dark); text-decoration: underline; font-weight: 600; }
 .cookie-actions { display: flex; gap: var(--s3); flex-shrink: 0; flex-wrap: wrap; }
 
 /* ── 20. RESPONSIVE ─────────────────────────────────────── */
@@ -1853,6 +1976,8 @@ select.form-control { cursor: pointer; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .stat-item:nth-child(2)::after { display: none; }
   .about-grid, .benefits-2col, .why-us-grid { grid-template-columns: 1fr; gap: var(--s10); }
+  .blog-cta-inner { flex-direction: column; text-align: center; gap: var(--s5); }
+  .blog-cta-text p { max-width: none; }
   .about-visual { max-width: 520px; margin-inline: auto; }
   .compare-card { position: static; }
   .contact-grid { grid-template-columns: 1fr; }

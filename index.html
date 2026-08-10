@@ -45,7 +45,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#debt-solutions">Debt Solutions</a></li>
         <li><a href="#how-we-work">How It Works</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -66,7 +66,7 @@
     <a href="#services">Our Services</a>
     <a href="#debt-solutions">Debt Solutions</a>
     <a href="#how-we-work">How It Works</a>
-    <a href="/blog">Blog</a>
+    <a href="blog.html">Blog</a>
     <a href="#benefits">Benefits</a>
     <a href="#testimonials">Client Reviews</a>
     <a href="#faq">FAQ</a>
@@ -277,6 +277,68 @@
 </section>
 
 <!-- ════════════════════════════════════════════════════════
+     DEBT CALCULATOR
+     ════════════════════════════════════════════════════════ -->
+<section class="calculator-section section-pad" id="calculator" style="background:var(--blue-50);">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Free Check</span>
+      <h2 class="section-title">Free Debt Repayment Checker</h2>
+      <p class="section-sub">Enter your details below to see an estimate of how long it will take to clear your debt and how much you'll pay in total — then speak to an adviser about solutions that could do better.</p>
+    </div>
+    <div class="calc-wrapper reveal">
+      <div class="calc-header">
+        <h3>Estimate Your Repayment Timeline</h3>
+        <p>This is an estimate only. Contact us for a personalised, detailed plan.</p>
+      </div>
+      <div class="calc-body">
+        <div class="calc-inputs">
+          <form id="calcForm">
+            <div class="calc-field">
+              <label for="totalDebt">Total Debt Amount (£)</label>
+              <input type="number" id="totalDebt" placeholder="e.g. 8500" min="1" step="1" required>
+            </div>
+            <div class="calc-field">
+              <label for="interestRate">Annual Interest Rate (%)</label>
+              <input type="number" id="interestRate" placeholder="e.g. 18.9" min="0" step="0.1" required>
+            </div>
+            <div class="calc-field">
+              <label for="monthlyPayment">Monthly Payment (£)</label>
+              <input type="number" id="monthlyPayment" placeholder="e.g. 250" min="1" step="1" required>
+            </div>
+            <p id="calcError" style="color:#EF4444;font-size:0.82rem;display:none;margin-top:-8px;"></p>
+            <br>
+            <button type="submit" class="btn btn-blue btn-lg calc-btn">Calculate Now</button>
+          </form>
+        </div>
+        <div class="calc-results" style="display:none;flex-direction:column;gap:18px;" id="calcResults">
+          <div class="calc-result-card">
+            <p>Estimated Time to Debt-Free</p>
+            <strong id="resultMonths">—</strong>
+            <span>Based on your current payment amount</span>
+          </div>
+          <div class="calc-result-card green-border">
+            <p>Total Amount You'll Pay</p>
+            <strong id="resultTotal">—</strong>
+            <span>Including principal and interest</span>
+          </div>
+          <div class="calc-result-card amber-border">
+            <p>Total Interest Paid</p>
+            <strong id="resultInterest">—</strong>
+            <span>A formal debt solution could reduce or write off this</span>
+          </div>
+          <a href="#contact" class="btn btn-green">Get a Better Plan — Free</a>
+        </div>
+        <div class="calc-placeholder" id="calcPlaceholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <p>Enter your details and click<br><strong>Calculate Now</strong> to see your results</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
      DEBT SOLUTIONS
      ════════════════════════════════════════════════════════ -->
 <section id="debt-solutions" class="section-pad" aria-labelledby="debt-title">
@@ -367,6 +429,25 @@
       <p class="section-sub">Not sure which option is right for you? Start with a simple, confidential conversation — there's no pressure, just guidance to help you understand your next steps.</p>
       <a href="#contact" class="btn btn-green" style="margin-top:var(--s6);">
         <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Start a Conversation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     BLOG CTA BANNER
+     ════════════════════════════════════════════════════════ -->
+<section id="blog-cta" aria-label="Visit our blog">
+  <div class="container">
+    <div class="blog-cta-inner reveal">
+      <div class="blog-cta-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></div>
+      <div class="blog-cta-text">
+        <h2>Want to Learn More Before You Decide?</h2>
+        <p>Explore our free guides and articles on managing debt, understanding your options, and taking back control of your finances — written in plain English, with no jargon.</p>
+      </div>
+      <a href="blog.html" class="btn btn-green btn-lg blog-cta-btn">
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        Visit Our Blog
       </a>
     </div>
   </div>
@@ -831,7 +912,7 @@
           <div class="form-group mb0">
             <label class="form-checkbox">
               <input type="checkbox" id="cf-consent" name="consent" required />
-              <span>I consent to being contacted about my enquiry and have read and agree to the <a href="/pages/privacy-policy" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
+              <span>I consent to being contacted about my enquiry and have read and agree to the <a href="pages/privacy-policy.html" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
             </label>
             <span class="form-error" role="alert" aria-live="polite" id="consent-error"></span>
           </div>
@@ -890,7 +971,7 @@
         <ul class="f-links" role="list">
           <li><a href="#about"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
           <li><a href="#how-we-work"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> How It Works</a></li>
-          <li><a href="/blog"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
+          <li><a href="blog.html"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
           <li><a href="#testimonials"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Client Reviews</a></li>
           <li><a href="#faq"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> FAQ</a></li>
           <li><a href="#contact"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Contact Us</a></li>
@@ -910,11 +991,11 @@
     <div class="footer-bottom">
       <p class="f-copy">&copy; 2009 The Credit Advice Ltd. All rights reserved.</p>
       <nav class="f-bottom-links" aria-label="Legal links">
-        <a href="/pages/privacy-policy">Privacy Policy</a>
-        <a href="/pages/cookies-policy">Cookies Policy</a>
-        <a href="/pages/terms-conditions">Terms &amp; Conditions</a>
-        <a href="/pages/disclaimer">Disclaimer</a>
-        <a href="/pages/anti-scam">Anti-Scam</a>
+        <a href="pages/privacy-policy.html">Privacy Policy</a>
+        <a href="pages/cookies-policy.html">Cookies Policy</a>
+        <a href="pages/terms-conditions.html">Terms &amp; Conditions</a>
+        <a href="pages/disclaimer.html">Disclaimer</a>
+        <a href="pages/anti-scam.html">Anti-Scam</a>
       </nav>
     </div>
   </div>
@@ -942,11 +1023,11 @@
 <div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
   <p class="cookie-text">
     We use cookies to improve your experience and analyse site usage.
-    Read our <a href="/pages/cookies-policy">Cookies Policy</a> and <a href="/pages/privacy-policy">Privacy Policy</a>.
+    Read our <a href="pages/cookies-policy.html">Cookies Policy</a> and <a href="pages/privacy-policy.html">Privacy Policy</a>.
   </p>
   <div class="cookie-actions">
     <button id="cookie-accept" class="btn btn-green btn-sm">Accept All</button>
-    <button id="cookie-decline" class="btn btn-outline-white btn-sm">Decline</button>
+    <button id="cookie-decline" class="btn btn-outline-blue btn-sm">Decline</button>
   </div>
 </div>
 
@@ -980,7 +1061,7 @@
       <div class="form-group mb0">
         <label class="form-checkbox">
           <input type="checkbox" id="lp-consent" name="consent" required />
-          <span>I consent to being contacted about my enquiry and have read and agree to the <a href="/pages/privacy-policy" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
+          <span>I consent to being contacted about my enquiry and have read and agree to the <a href="pages/privacy-policy.html" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
         </label>
         <span class="form-error" role="alert" aria-live="polite" id="lp-consent-error"></span>
       </div>
@@ -1064,7 +1145,7 @@
       <div class="form-group mb0">
         <label class="form-checkbox">
           <input type="checkbox" id="pop-consent" name="consent" required />
-          <span>I consent to being contacted about my enquiry and have read and agree to the <a href="/pages/privacy-policy" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
+          <span>I consent to being contacted about my enquiry and have read and agree to the <a href="pages/privacy-policy.html" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. <span class="req">*</span></span>
         </label>
         <span class="form-error" role="alert" aria-live="polite" id="pop-consent-error"></span>
       </div>
