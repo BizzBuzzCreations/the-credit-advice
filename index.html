@@ -855,7 +855,8 @@
       <div class="contact-form-card reveal-right">
         <h3 class="cfc-title">Send Us a Message</h3>
         <p class="cfc-sub">We'll get back to you within one working day. Fields marked <span style="color:#EF4444">*</span> are required.</p>
-        <form id="contact-form" novalidate aria-label="Contact form">
+        <form id="contact-form" name="contact" netlify data-netlify="true" data-wit-form="contact-form" novalidate aria-label="Contact form">
+          <input type="hidden" name="form-name" value="contact" />
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="cf-firstname">First Name <span class="req">*</span></label>
@@ -1042,7 +1043,8 @@
     <div class="lead-popup-icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></div>
     <h3 class="lead-popup-title">Get Free Financial Guidance</h3>
     <p class="lead-popup-sub">Leave your details and we'll call you back — no pressure, no obligation.</p>
-    <form id="lead-popup-form" novalidate>
+    <form id="lead-popup-form" name="lead-popup" netlify data-netlify="true" data-wit-form="lead-popup" novalidate>
+      <input type="hidden" name="form-name" value="lead-popup" />
       <div class="form-group">
         <label class="form-label" for="lp-name">Full Name <span class="req">*</span></label>
         <input type="text" id="lp-name" name="name" class="form-control" placeholder="Your full name" autocomplete="name" required />
@@ -1088,7 +1090,8 @@
     </button>
     <div class="cfc-title" style="font-size:1.4rem;font-weight:700;color:var(--heading);margin-bottom:.5rem;">Send Us a Message</div>
     <p class="cfc-sub">We'll get back to you within one working day. Fields marked <span style="color:#EF4444">*</span> are required.</p>
-    <form id="popup-form" novalidate aria-label="Guidance contact form">
+    <form id="popup-form" name="guidance-popup" netlify data-netlify="true" data-wit-form="guidance-popup" novalidate aria-label="Guidance contact form">
+      <input type="hidden" name="form-name" value="guidance-popup" />
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="pop-firstname">First Name <span class="req">*</span></label>
@@ -1166,5 +1169,6 @@
 
 <script src="js/script.js" defer></script>
 <script src="js/nav-scroll.js" defer></script>
+<script src="https://crm.bizzbuzzcreations.com/wit.js" data-tracking-id="wit_7dc47ee01b7d5008eb20a924" async></script>
 </body>
 </html>

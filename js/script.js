@@ -8,6 +8,53 @@
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+/* Mirrors a submission to Netlify Forms in the background. Fire-and-forget:
+   never blocks or fails the primary web3forms submission. */
+function submitToNetlify(form) {
+  const body = new URLSearchParams(new FormData(form)).toString();
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body
+  }).catch(() => {});
+}
+
+/* Mirrors a submission to rndCRM via our own serverless function (which holds
+   the CRM secret) in the background. Fire-and-forget, same reasoning as above. */
+function submitToCrm(form) {
+  const fd  = new FormData(form);
+  const get = k => (fd.get(k) || '').toString().trim();
+
+  const contactPerson = get('name') || `${get('firstname')} ${get('lastname')}`.trim();
+  if (!contactPerson) return;
+
+  let visitorId = '', sessionId = '';
+  try {
+    if (window.wit && typeof window.wit.getIds === 'function') {
+      ({ visitorId = '', sessionId = '' } = window.wit.getIds() || {});
+    }
+  } catch {}
+
+  fetch('/.netlify/functions/crm-lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contactPerson,
+      companyName: contactPerson,
+      email: get('email'),
+      phone: get('phone'),
+      dealValue: 0,
+      visitorId,
+      sessionId,
+      customFields: {
+        message: get('message'),
+        service: get('service'),
+        debtValue: get('debt')
+      }
+    })
+  }).catch(() => {});
+}
+
 /* ── 1. NAVIGATION ──────────────────────────────────────── */
 (function initNav() {
   const navbar  = $('#navbar');
@@ -309,6 +356,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
 
+    submitToNetlify(form);
+    submitToCrm(form);
+
     const data = {};
     new FormData(form).forEach((v, k) => { data[k] = v; });
     data['access_key'] = '50c7d8d6-52a5-4e41-b2dd-2b52971df52f';
@@ -412,6 +462,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
 
+    submitToNetlify(popForm);
+    submitToCrm(popForm);
+
     const data = {};
     new FormData(popForm).forEach((v, k) => { data[k] = v; });
     data['access_key'] = '50c7d8d6-52a5-4e41-b2dd-2b52971df52f';
@@ -509,6 +562,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const submitBtn = lpForm.querySelector('[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting…';
+
+    submitToNetlify(lpForm);
+    submitToCrm(lpForm);
 
     const data = {};
     new FormData(lpForm).forEach((v, k) => { data[k] = v; });
