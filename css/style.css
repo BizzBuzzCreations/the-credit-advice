@@ -2031,11 +2031,10 @@ select.form-control { cursor: pointer; }
 .sd-content {
   font-size: .74rem;
   color: rgba(255,255,255,.38);
-  line-height: 1.8;
+  line-height: 1.4;
   margin-bottom: var(--s5);
 }
-.sd-content p { margin-bottom: .55rem; }
-.sd-content p:last-child { margin-bottom: 0; }
+.sd-content p { margin-bottom: 0; }
 .sd-content a {
   color: rgba(255,255,255,.55);
   text-decoration: underline;
