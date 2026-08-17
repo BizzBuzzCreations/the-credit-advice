@@ -14,10 +14,7 @@ const BLOG_POSTS = [
     featured: false,
     image: 'blog-images/TOP-10-DEBT-SOLUTION-COMPANIES.jpeg',
     excerpt: 'Search demand for financial help is growing rapidly in the UK. Discover the top 10 debt advice companies and proven strategies to escape debt faster in 2026.',
-<<<<<<< HEAD
     link: '/best-debt-advice-companies-uk'
-=======
-    link: 'all-blog/best-debt-advice-companies-uk.html'
   },
   {
     id: 2,
@@ -28,8 +25,7 @@ const BLOG_POSTS = [
     featured: false,
     image: 'blog-images/uk-student-finance-2026.png',
     excerpt: 'Understand student finance UK 2026, including Maintenance Loans, Tuition Fee Loans, budgeting, repayments and what to do if student debt becomes difficult.',
-    link: 'all-blog/student-finance-uk-2026.html'
->>>>>>> 5635f93cfc9512f3665c9058566b6abcf7ff9ff2
+    link: '/student-finance-uk-2026'
   }
 ];
 
