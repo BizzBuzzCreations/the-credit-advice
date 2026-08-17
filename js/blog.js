@@ -14,7 +14,22 @@ const BLOG_POSTS = [
     featured: false,
     image: 'blog-images/TOP-10-DEBT-SOLUTION-COMPANIES.jpeg',
     excerpt: 'Search demand for financial help is growing rapidly in the UK. Discover the top 10 debt advice companies and proven strategies to escape debt faster in 2026.',
+<<<<<<< HEAD
     link: '/best-debt-advice-companies-uk'
+=======
+    link: 'all-blog/best-debt-advice-companies-uk.html'
+  },
+  {
+    id: 2,
+    title: 'Student Finance UK 2026: A Complete Guide to Student Loans, Maintenance & Managing Money',
+    category: 'Financial Planning',
+    categorySlug: 'financial-planning',
+    date: '13 August 2026',
+    featured: false,
+    image: 'blog-images/uk-student-finance-2026.png',
+    excerpt: 'Understand student finance UK 2026, including Maintenance Loans, Tuition Fee Loans, budgeting, repayments and what to do if student debt becomes difficult.',
+    link: 'all-blog/student-finance-uk-2026.html'
+>>>>>>> 5635f93cfc9512f3665c9058566b6abcf7ff9ff2
   }
 ];
 
@@ -24,7 +39,8 @@ const BLOG_POSTS = [
    ───────────────────────────────────────────────────────────── */
 const CATEGORIES = [
   { label: 'All Articles', slug: 'all' },
-  { label: 'Debt Advice', slug: 'debt-advice' }
+  { label: 'Debt Advice', slug: 'debt-advice' },
+  { label: 'Financial Planning', slug: 'financial-planning' }
 ];
 
 const CATEGORY_META = {
@@ -50,10 +66,8 @@ function buildCardHTML(post) {
   const imageArea = post.image
     ? `<a href="${href}" class="blog-card-image blog-card-img-real" aria-label="Read: ${post.title}">
         <img src="${post.image}" alt="${post.title}" loading="lazy" />
-        <span class="card-cat-chip">${post.category}</span>
       </a>`
     : `<a href="${href}" class="blog-card-image" style="background:${meta.gradient}" aria-label="Read: ${post.title}">
-        <span class="card-cat-chip">${post.category}</span>
         <i class="fa-solid ${meta.icon}" aria-hidden="true"></i>
       </a>`;
 
