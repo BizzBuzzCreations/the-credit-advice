@@ -115,6 +115,7 @@ html {
   scroll-padding-top: var(--nav-h);
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 body {
   font-family: var(--font);
@@ -297,8 +298,8 @@ input,textarea,select { font-family:inherit; }
   box-shadow: 0 4px 28px rgba(29,52,97,.13);
   border-bottom: 1px solid var(--blue-100);
   height: 58px;
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 /* On hero section, start transparent; scrolled = white */
 #navbar.on-hero.transparent { background: linear-gradient(to bottom, rgba(11,29,53,0.45), transparent); }
@@ -987,7 +988,8 @@ input,textarea,select { font-family:inherit; }
 }
 .calc-field input:focus { border-color: var(--primary); }
 .calc-btn { width: 100%; }
-.calc-results { display: flex; flex-direction: column; gap: 18px; }
+.calc-results { display: none; flex-direction: column; gap: 18px; }
+.calc-error-text { color: #EF4444; font-size: 0.82rem; display: none; margin-top: -8px; }
 .calc-result-card {
   background: var(--gray-50);
   border-radius: var(--r-lg);
@@ -1594,6 +1596,7 @@ input,textarea,select { font-family:inherit; }
   border: 1.5px solid rgba(255,255,255,.25);
   border-radius: var(--r-2xl);
   padding: var(--s6) var(--s8);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -1672,8 +1675,8 @@ input,textarea,select { font-family:inherit; }
   justify-content: center;
   padding: 1.25rem;
   overflow-y: auto;
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 .lead-popup-overlay.open { display: flex; }
 .lead-popup-box {
@@ -1753,8 +1756,8 @@ input,textarea,select { font-family:inherit; }
   z-index: 9999;
   overflow-y: auto;
   padding: var(--s8) var(--s4);
-  backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 .modal-overlay.open {
   display: flex;
@@ -2050,3 +2053,80 @@ select.form-control { cursor: pointer; }
   border-top: 1px solid rgba(255,255,255,.05);
   margin-top: var(--s4);
 }
+
+/* ════════════════════════════════════════════════════════
+   UTILITY & COMPONENT CLASSES (extracted from inline styles)
+   ════════════════════════════════════════════════════════ */
+
+/* Spacing utilities */
+.mt-4  { margin-top: var(--s4); }
+.mt-5  { margin-top: var(--s5); }
+.mt-6  { margin-top: var(--s6); }
+.mt-8  { margin-top: var(--s8); }
+.mt-10 { margin-top: var(--s10); }
+.mb-12 { margin-bottom: var(--s12); }
+.fs-2xl { font-size: var(--text-2xl); }
+
+/* Backgrounds */
+.bg-alt     { background: var(--bg-alt); }
+.bg-blue-50 { background: var(--blue-50); }
+
+/* Full-width, centred button (used in card CTAs) */
+.btn-full { width: 100%; justify-content: center; }
+
+/* Hero pretitle label */
+.hero-pretitle {
+  color: rgba(255,255,255,.65);
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+
+/* Hero form card checklist */
+.hfc-checklist { display: flex; flex-direction: column; gap: .75rem; margin: 1.25rem 0; }
+.hfc-check-row { display: flex; align-items: flex-start; gap: .6rem; font-size: .875rem; color: #000; }
+.hfc-check-row .hfc-check-icon { color: #5de89a; margin-top: .15rem; flex-shrink: 0; }
+.hfc-note { font-size: .85rem; color: #000; margin-bottom: 1.25rem; }
+.hfc-note--top { font-size: .85rem; color: #000; margin: 1rem 0 1.25rem; }
+
+/* About section mini stat badges */
+.about-badge {
+  position: absolute;
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: var(--r-xl);
+  padding: .7rem 1.1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.13);
+  z-index: 10;
+}
+.about-badge--top    { top: -14px; left: -14px; }
+.about-badge--bottom { bottom: -14px; right: -14px; }
+.about-badge-value { font-size: 1.35rem; font-weight: 800; color: var(--primary); line-height: 1; }
+.about-badge-label { font-size: .72rem; font-weight: 600; color: var(--text-muted); margin-top: .3rem; white-space: nowrap; }
+.about-cta-row { margin-top: var(--s8); display: flex; gap: var(--s4); flex-wrap: wrap; }
+
+/* Benefits visual checklist */
+.benefits-check-list { display: flex; flex-direction: column; gap: .75rem; margin-top: var(--s6); }
+.benefits-check-row { display: flex; align-items: center; gap: .75rem; color: rgba(255,255,255,.9); font-size: .9rem; }
+.benefits-check-row .benefits-check-icon { color: #5de89a; font-size: 1.1rem; flex-shrink: 0; }
+.benefits-visual-note { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: var(--s6); }
+
+/* Contact info mini checklist */
+.ci-divider { margin-top: var(--s6); padding-top: var(--s6); border-top: 1px solid rgba(255,255,255,.08); }
+.ci-extra { margin-top: var(--s5); display: flex; flex-direction: column; gap: .5rem; }
+.ci-mini-row { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: rgba(255,255,255,.6); }
+.ci-mini-row .ci-mini-icon { color: #5de89a; }
+.ci-note { font-size: .8rem; color: rgba(255,255,255,.45); margin-top: var(--s5); font-style: italic; }
+
+/* Forms: required-field note & links inside consent/success copy */
+.text-required { color: #EF4444; }
+.consent-link { color: var(--primary); font-weight: 600; }
+.phone-link { color: var(--primary); font-weight: 700; }
+
+/* Popup / modal title reuse of cfc-title at a larger size */
+.modal-title { font-size: 1.4rem; font-weight: 700; color: var(--heading); margin-bottom: .5rem; }
+
+/* Site disclaimer text alignment */
+.sd-text-center { text-align: center; }
